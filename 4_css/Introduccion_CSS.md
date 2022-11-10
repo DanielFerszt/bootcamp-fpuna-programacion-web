@@ -1,7 +1,7 @@
 ---
 title: Introducción a CSS
 has_children: false
-nav_order: 5
+nav_order: 6
 ---
 # Proyecto Plaza Virtual Parte 2: Introducción a CSS
 

@@ -4,3 +4,17 @@ remote_theme: just-the-docs/just-the-docs
 search_enabled: false
 logo: "/assets/images/logo.png"
 heading_anchors: true
+color_scheme: poli
+callouts:
+  warning:
+    title: Warning
+    color: red
+  important:
+    title: Importante
+    color: blue
+  concept:
+    title: Concepto clave
+    color: green
+  note:
+    title: Nota
+    color: purple
