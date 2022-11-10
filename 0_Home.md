@@ -13,7 +13,7 @@ pdf: true
 Propuesta de valor del curso de programacion web. Una frase que explique los puntos mas fuertes del programa y la filosofia detras.
 {: .fs-6 .fw-300 }
 
-[Empezar](1_intro/1_Intro_Programacion){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 } [Girls Code](https://www.instagram.com/girlscodepy/?hl=es){:target="_blank"}{: .btn .fs-5 .mb-4 .mb-md-0 }
+[Empezar](1_intro/1_Programacion){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 } [Educa](https://ead.pol.una.py/politecnica/course/view.php?id=7122){:target="_blank"}{: .btn .fs-5 .mb-4 .mb-md-0 }
 
 ---
 
