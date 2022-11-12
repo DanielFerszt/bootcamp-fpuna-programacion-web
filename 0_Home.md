@@ -10,13 +10,13 @@ pdf: true
 # Introducción a la programación web.
 {: .fs-9 }
 
-Propuesta de valor del curso de programacion web. Una frase que explique los puntos mas fuertes del programa y la filosofia detras.
+Este tutorial incluye el material introductorio que le servirá al alumno para dar los primeros pasos en programación web.
+
 {: .fs-6 .fw-300 }
 
 [Empezar](1_intro/1_Programacion){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 } [Educa](https://ead.pol.una.py/politecnica/course/view.php?id=7122){:target="_blank"}{: .btn .fs-5 .mb-4 .mb-md-0 }
 
 ---
-
 
 # Fundamentación
 
