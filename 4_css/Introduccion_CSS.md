@@ -57,7 +57,7 @@ Las etiquetas `<h1>` se muestran de color negro en el navegador. Para cambiar el
 Modificá la linea donde se encuentra la etiqueta `<h1>`, para que quede así:
 
 ```html
-<h1 style="color: red">Detalle de Producto</h1>
+<h1 style="color: red">Mi plaza</h1>
 ```
 
 {: .concept }
@@ -100,7 +100,7 @@ La cabecera del archivo HTML debería quedar así:
 
 ```html
 <head>
-  <title>Diseño de Interfaces</title>
+  <title>Mi plaza virtual</title>
   <link rel="stylesheet" href="./style.css" />
 </head>
 ```
