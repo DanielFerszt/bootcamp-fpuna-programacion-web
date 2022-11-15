@@ -220,7 +220,7 @@ La última parte de esta interfaz implica la creación del código que mas tarde
 Agrega este código encima de la última etiqueta `</div>`:
 
 ```html
-<div id="plazita">
+<div id="placita">
     <div class="cielo"></div>
 	<div class="suelo"></div>
 </div>
