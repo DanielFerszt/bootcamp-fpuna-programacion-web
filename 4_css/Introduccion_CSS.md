@@ -338,6 +338,10 @@ Ya vimos como los selectores de etiqueta seleccionan todos los elementos con la 
 
 Ahora, que hacemos si necesitamos estilizar solo algunos de los `div`, pero no todos. Por ejemplo, en nuestra página usamos `div` para agrupar las imágenes que tienen que ir a la izquierda y a la derecha, pero también usamos multiples `div` para organizar el resto de la página.
 
+<div style="text-align: center">
+    <iframe src="https://drive.google.com/file/d/15rLWpevAJQm_9P4tudqWmmzD9p6gc4hs/preview" width="640" height="450" allow="autoplay"></iframe>
+</div>
+
 Fijate en esta sección del HTML:
 
 ```html
