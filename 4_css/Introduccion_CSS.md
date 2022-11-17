@@ -38,6 +38,10 @@ Deberías tener el archivo HTML del proyecto terminado y listo para darle estilo
 
 # La cascada
 
+<div style="text-align: center">
+    <iframe src="https://drive.google.com/file/d/1aKyFCA3CjgdlSZzCKnPsTFXv98IfjCny/preview" width="640" height="450" allow="autoplay"></iframe>
+</div>
+
 Las hojas de estilo en cascada incorporan la idea de que los estilos 'se mueven en cascada' de manera que la aplicación de un estilo está guiada por su prioridad. 
 * Los estilos establecidos por el autor de un sitio web tienen prioridad sobre los establecidos por un navegador. 
 * Los estilos configurados 'en línea' tienen prioridad sobre los configurados en una hoja de estilo externa.
@@ -160,6 +164,10 @@ Si guardas todos los cambios y actualizas la página, deberías ver que el eleme
 
 Ahora que tenemos la hoja de estilos preparada y ya entendemos como y donde escribir CSS, empecemos a ajustar los estilos de nuestra página.
 
+<div style="text-align: center">
+    <iframe src="https://drive.google.com/file/d/1zcxK3dIXi9G2jkLVqZ8I23G5derf5Nq2/preview" width="640" height="450" allow="autoplay"></iframe>
+</div>
+
 ### Actividad:
 {: .no_toc }
 
@@ -208,6 +216,10 @@ En HTML, los elementos heredan los estilos de todos sus antepasados.
 En CSS, los selectores son patrones o una sintaxis específica que nos permite *seleccionar* los elementos que queremos estilizar.
 
 Nos permiten aplicar estilos elementos específicos. Hasta ahora, solo utilizamos los selectores de etiquetas.
+
+<div style="text-align: center">
+    <iframe src="https://drive.google.com/file/d/10a_C2XiNCtq0If6OiYjtHiHD0LxXq_7G/preview" width="640" height="450" allow="autoplay"></iframe>
+</div>
 
 ## Selectores de Etiquetas
 
