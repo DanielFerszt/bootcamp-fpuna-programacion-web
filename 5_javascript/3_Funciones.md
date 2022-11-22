@@ -23,6 +23,10 @@ Igual de importante es la capacidad de nombrar una función. Si bien esto puede 
 
 # Creando y llamando funciones
 
+<div style="text-align: center">
+    <iframe src="https://drive.google.com/file/d/1iWdx5K9-tYOAPXFXSvVpgnfzd3y6Tl1m/preview" width="640" height="450" allow="autoplay"></iframe>
+</div>
+
 La sintaxis de una función se parece a la siguiente:
 
 ```javascript
@@ -59,6 +63,10 @@ Hay algunas prácticas recomendadas que se deben tener en cuenta al crear funcio
 ---
 
 # Parámetros
+
+<div style="text-align: center">
+    <iframe src="https://drive.google.com/file/d/1f47bPByrhdBNlEzyX7Y5hCq9VXB3P1HN/preview" width="640" height="450" allow="autoplay"></iframe>
+</div>
 
 Para que una función sea más reutilizable, a menudo querrás pasarle información. Si consideramos nuestro ejemplo de `saludar` anterior, solo mostrará **¡Hola, mundo!**. No es la función más útil que uno podría crear. Si queremos hacerlo un poco más flexible, como permitir que alguien especifique el nombre de la persona a saludar, podemos agregar un **parámetro**. Un parámetro (también llamado a veces **argumento**), es información adicional enviada a una función.
 
@@ -172,6 +180,10 @@ setTimeout(mostrarCuandoEsteListo, 3000);
 ---
 
 # Funciones anónimas
+
+<div style="text-align: center">
+    <iframe src="https://drive.google.com/file/d/1p93mjrzSWNZ2tWASHabrh7vlVGNCe0mj/preview" width="640" height="450" allow="autoplay"></iframe>
+</div>
 
 Revisemos lo que hemos construido. Estamos creando una función con un nombre que se usará una vez. A medida que nuestra aplicación se vuelve más compleja, podemos vernos creando muchas funciones que sólo se llamarán una vez. Esto no es ideal. ¡Resulta que no siempre necesitamos proporcionar un nombre!
 

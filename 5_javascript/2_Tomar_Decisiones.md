@@ -25,6 +25,10 @@ let mFalseBool = false
 
 ## Operadores de comparación y valores booleanos
 
+<div style="text-align: center">
+    <iframe src="https://drive.google.com/file/d/16TKLVgcUpy8q-F7bNbdA-JgCBRFD-lfz/preview" width="640" height="450" allow="autoplay"></iframe>
+</div>
+
 Los operadores se utilizan para evaluar las condiciones haciendo comparaciones que crearán un valor booleano. La siguiente es una lista de operadores que se utilizan con frecuencia.
 
 | Símbolo | Descripción                                                                                                                                                                  | Ejemplo            |
@@ -41,6 +45,10 @@ Los operadores se utilizan para evaluar las condiciones haciendo comparaciones q
 ---
 
 # Declaración If
+
+<div style="text-align: center">
+    <iframe src="https://drive.google.com/file/d/12NfxTs6VgB5NKf11UkdmcrCVi1pu2CYU/preview" width="640" height="450" allow="autoplay"></iframe>
+</div>
 
 La sentencia `if` ejecutará código entre sus bloques si la condición es verdadera.
 
