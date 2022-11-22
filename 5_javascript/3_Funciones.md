@@ -2,12 +2,14 @@
 title: Funciones
 has_children: false
 parent: Introducción a JavaScript
-nav_order: 2
+nav_order: 3
 ---
 
 # Conceptos básicos de JavaScript: funciones
 
 Cuando pensamos en escribir código, siempre queremos asegurarnos que nuestro código sea legible. Si bien esto suena contradictorio, el código se lee muchas más veces de las que se escribe. Una herramienta central en la caja de herramientas de un desarrollador para garantizar que el código se pueda mantener es la función o método.
+
+---
 
 # Funciones
 
@@ -16,6 +18,8 @@ Una función es un bloque de código destinado a realizar una tarea. Una funció
 En esencia, una función es un bloque de código que podemos ejecutar bajo demanda. Esto es perfecto para escenarios en los que necesitamos realizar la misma tarea varias veces; en lugar de duplicar la lógica en varias ubicaciones (lo que dificultaría la actualización cuando llegue el momento), podemos centralizarla en una ubicación y llamarla cuando necesitemos que se realice la operación; ¡incluso podés llamar a funciones desde otras funciones!
 
 Igual de importante es la capacidad de nombrar una función. Si bien esto puede parecer trivial, el nombre proporciona una forma rápida de documentar una sección de código. Podrías pensar en esto como una etiqueta en un botón. Si hago clic en un botón que dice "Cancelar temporizador", sé que dejará de correr el reloj.
+
+---
 
 # Creando y llamando funciones
 
@@ -52,6 +56,7 @@ Hay algunas prácticas recomendadas que se deben tener en cuenta al crear funcio
 - Usá **camelCasing** para combinar palabras.
 - Mantené tus funciones enfocadas en una tarea específica.
 
+---
 
 # Parámetros
 
@@ -103,6 +108,8 @@ saludar('Alicia', 'Buenas');
 
 Cualquier parámetro con valores predeterminados debe estar al final de la lista de parámetros. La razón es que JavaScript intenta hacer coincidir argumentos con parámetros y los parámetros con valores predeterminados pueden omitirse en la invocación.
 
+---
+
 # Valores de retorno
 
 Hasta ahora, la función que construimos siempre saldrá a la [consola](https://developer.mozilla.org/es/docs/Web/API/console){:target="_blank"}. A veces, esto puede ser exactamente lo que estamos buscando, especialmente cuando creamos funciones que llamarán a otros servicios. Pero, ¿qué pasa si quiero crear una función auxiliar para realizar un cálculo y devolver el valor para poder usarlo en otro lugar?
@@ -127,6 +134,8 @@ function sumar(primerValor, segundoValor) {
 
 En el código anterior, se devuelve la variable `suma`.
 
+---
+
 # Invocación
 
 Cuando _invocas_ una función, la llamas con 0...N conjuntos de argumentos. Los valores de los argumentos se vinculan a los parámetros correspondientes a su posición. La función `sumar()` introducido se puede invocar de la siguiente manera:
@@ -143,7 +152,7 @@ JavaScript es bastante flexible cuando se trata de invocaciones. No estás oblig
 
 🚀 Desafío, intentá llamar al función `sumar()` así `sumar(1)` y ve qué sucede.
 
-
+---
 
 # Funciones como parámetros de funciones
 
@@ -160,6 +169,7 @@ function mostrarCuandoEsteListo() {
 //el valor del temporizador está en milisegundos
 setTimeout(mostrarCuandoEsteListo, 3000);
 ```
+---
 
 # Funciones anónimas
 
@@ -177,8 +187,9 @@ setTimeout(function() {
 
 Si ejecutás este nuevo código, notarás que obtenemos los mismos resultados. ¡Hemos creado una función, pero no teníamos que darle un nombre!
 
+---
 
-# Funciones de fecha ancha (Fat arrow functions)
+# Funciones de flecha ancha (Fat arrow functions)
 
 Un atajo común en muchos lenguajes de programación (incluido JavaScript) es la capacidad de usar lo que se llama una función de **flecha** o **flecha ancha**. Utiliza un indicador especial de `=>`, que parece una flecha, ¡de ahí el nombre! Al usar `=>`, podemos omitir la palabra clave `función`.
 
@@ -193,6 +204,7 @@ setTimeout(() => {
 
 Ahora viste que tenemos tres formas de pasar una función como parámetro y puede que te preguntes cuándo usar cada una. Si sabés que usarás la función más de una vez, creala normalmente. Si lo usarás solo para una ubicación, generalmente es mejor usar una función anónima. Depende de vos si usás o no una función de flecha ancha o la sintaxis de `función` más tradicional, pero notarás que la mayoría de los desarrolladores modernos prefieren `=>`.
 
+---
 
 # Revisión y autoestudio
 
@@ -212,5 +224,25 @@ Ve si podés crear una función que tenga una combinación de parámetros y par�
 | Criterios | Ejemplar | Adecuado | Necesita mejorar |
 | -------- | -------------------------------------------------- ------------------------------------ | -------------------------------------------------- -------------- | ----------------- |
 | | La solución se ofrece con dos o más funciones de buen rendimiento con diversos parámetros | La solución de trabajo se ofrece con una función y pocos parámetros | La solución tiene errores |
+
+## Tarea - Refactor de programa para comparar numeros
+
+### Instrucciones
+
+En la tarea del apartado anterior hicimos un programa que compara tres numeros para determinar cual es el mayor. 
+
+Ahora necesitamos poder utilizar esa lógica en diversas secciones de una aplicación. Para ello, necesitamos hacer un `refactor` del código.
+
+Cambia el código para que toda la lógica este contenida en una función que permita hacer lo siguiente:
+
+```javascript
+console.log(cualEsMayor(1,2,3))
+```
+
+### Rúbrica
+
+| Criterios | Ejemplar | Adecuado | Necesita mejorar |
+| -------- | -------------------------------------------------- ------------------------------------ | -------------------------------------------------- -------------- | ----------------- |
+| | Se declara una funcion que funciona correctamente tomando tres parámetros | Solución parcial, con parametros incompletos, pero se llega al resultado | La solución tiene errores |
 
 

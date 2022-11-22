@@ -11,16 +11,75 @@ Esta lección cubre los conceptos básicos de JavaScript, el lenguaje que propor
 
 ¡Comencemos con las variables y los tipos de datos que las pueblan!
 
+# Preparar el proyecto
+
+{: .important }
+Para poder seguir este material paso a paso, podemos crear un nuevo proyecto con una pagina web en blanco, simplemente usar el proyecto que ya teniamos hecho.
+
+### Actividad
+
+Crea un proyecto nuevo así como lo hiciste en el apartado de [Intro a HTML](../3_html/Introduccion_HTML)
+
+Recordemos los pasos:
+1. Crea una carpeta llamada "js-basics"
+2. Ya podés abrir la carpeta en el visual studio.
+3. Agrega un archivo HTML llamado `index.html`.
+
+Bastará con que nuestro HTML quede asi:
+
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JS Basics</title>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script src="./script.js" defer></script>
+    </head>
+    <body>
+        <h1>JS Basics<h1>
+    </body>
+</html>
+```
+
+No necesitamos incluir un archivo CSS para este proyecto, pero si querés, podes crear el archivo `style.css` y agregale todo lo que quieras a la página.
+
+En el proyecto vamos a crear un archivo nuevo, llamado `script.js`, y vamos a agregar en la cabecera del HTML la siguiente linea:
+
+```html
+<script src="./script.js" defer></script>
+```
+
+Vamos a escribir todo nuestro código en JavaScript en el archivo `script.js`, y podemos empezar escribiendo un mensaje, que vamos a poder ver en la consola.
+
+## Tarea - hola mundo en la consola
+
+Escribí la siguiente linea en el archivo `script.js`.
+
+```javascript
+console.log("Hola Mundo");
+```
+
+Ahora abrí la pagina web del proyecto y abrí la consola, deberias poder ver el mensaje que escribiste.
+
+![abrir-consola](images/abrir-consola.gif)
+
+---
+
 # Variables
 
-Las variables almacenan valores que se pueden usar y cambiar a lo largo de tu código.
+Las variables son objetos que almacenan valores en la computadora, para que podamos volver a usarlos mas tarde.
 
-Crear y **declarar** una variable tiene la siguiente sintaxis **[keyword] [nombre]**. Está compuesto por dos partes:
+Podemos pensar que una variable es como una "caja" donde podemos meter cualquier valor, ya sea un numero, un texto, una imagen, etc.
 
-- **Keyword**. Las palabras clave pueden ser `let` o `var`.
+Para crear o **declarar** una variable usamos la siguiente sintaxis **[keyword] [nombre]**, donde:
+
+- **Keyword** es una palabra clave que le dice a la computadora que lo que estoy escribiendo es una nueva variable. Este keyword puede ser `let` o `var`.
 
     > Tené en cuenta que la palabra clave `let` se introdujo en ES6 y le da a tu variable un llamado _alcance de bloque_ (block scope). Se recomienda utilizar `let` sobre `var`. Cubriremos los alcances de bloque con más profundidad en partes futuras.
-- **El nombre de la variable**, este es un nombre que vos mismo elegís.
+
+- **El nombre de la variable**, este es un nombre que vos mismo elegís, y que es equivalente a la etiqueta que pegamos en una caja para recordar que guardamos all.
 
 ## Tarea - trabajar con variables
 
@@ -61,6 +120,8 @@ Crear y **declarar** una variable tiene la siguiente sintaxis **[keyword] [nombr
 
     ✅ ¡Probá! Podés escribir JavaScript directamente en tu navegador. Abrí una ventana del navegador y navegá hasta Herramientas de desarrollo. En la consola, encontrarás un mensaje; escribí `let miVariable = 123`, presioná retorno (enter), luego escribí `miVariable`. ¿Qué pasa? Tené en cuenta que aprenderás más sobre estos conceptos en lecciones posteriores.
 
+---
+
 # Constantes
 
 La declaración e inicialización de una constante sigue los mismos conceptos que una variable, con la excepción de la palabra clave `const`. Las constantes se declaran normalmente con todas las letras mayúsculas, esto es lo que se llama una *convención de nombre*.
@@ -72,32 +133,16 @@ const MY_VARIABLE = 123;
 Las constantes son similares a las variables, con dos excepciones:
 
 - **Deben tener un valor**. Las constantes deben inicializarse o se producirá un error al ejecutar el código.
-- **La referencia no se puede cambiar**. La referencia de una constante no se puede cambiar una vez inicializada, o se producirá un error al ejecutar el código. Veamos dos ejemplos:
+- **El valor en constantes simples no se puede cambiar**. El valor de una constante no se puede cambiar una vez inicializada, o se producirá un error al ejecutar el código. Veamos un ejemplo:
     - **Valor simple**. NO se permite lo siguiente:
-
-   
       ```javascript
       const PI = 3;
       PI = 4; // no permitido
       ```
- 
-   - **La referencia del objeto está protegida**. NO se permite lo siguiente.
-   
-      ```javascript
-      const obj = { a: 3 };
-      obj = { b: 5 } // no permitido
-      ```
 
-    - **El valor del objeto no está protegido**. Se permite lo siguiente:
-    
-      ```javascript
-      const obj = { a: 3 };
-      obj.a = 5;  // permitido
-      ```
+   > Tené en cuenta que `const` significa que la referencia está protegida contra la reasignación. Sin embargo, algunas estructuras complejas que pueden declararse como costantes permiten que se cambie alguno de sus valores.
 
-      Arriba está cambiando el valor del objeto pero no la referencia en sí.
-
-   > Tené en cuenta que `const` significa que la referencia está protegida contra la reasignación. Sin embargo, el valor no es _immutable_ y puede cambiar, especialmente si es una construcción compleja como un objeto.
+---
 
 # Tipos de datos
 
@@ -183,6 +228,7 @@ Los booleanos pueden tener solo dos valores: `true` (verdadero) o `false` (falso
 `let age = 1; let Age = 2; age == Age` 
 (resuelve `false` - ¿por qué?). ¿Qué otras trampas podés encontrar?
 
+---
 
 # Revisión y autoestudio
 
@@ -192,10 +238,11 @@ Echá un vistazo a [esta lista de ejercicios de JavaScript](https://css-tricks.c
 
 ### Instrucciones
 
-Imaginá que estás construyendo un carrito de compras. Escribí documentación sobre los tipos de datos que necesitarías para completar tu experiencia de compra. ¿Cómo llegasst a tus elecciones?
+Imaginá que estás construyendo un carrito de compras para una página web. Describí los tipos de datos que necesitarías para completar tu experiencia de compra, explicando que variables utilizarías y de que tipo serían. ¿Cómo llegaste a tus elecciones?
 
 ### Rúbrica
 
 Criterios | Ejemplar | Adecuado | Necesita mejorar
 --- | --- | --- | - |
-| Los seis tipos de datos se enumeran y exploran en detalle, documentando su uso | Se exploran cuatro tipos de datos | Se exploran dos tipos de datos |
+| Se explican todas variables necesarias para el carrito, incluyendo una descripción de para que está cada una | Se explican algunas variables, pero no todas las necesarias para el funcionamiento básico | Se explora solo una variable, o no completa el ejercicio |
+ 
