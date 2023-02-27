@@ -480,23 +480,23 @@ Terminamos! La página web debería haberte quedado mas o menos así:
 
 # Revisión y autoestudio
 
-CSS parece engañosamente sencillo, pero existen muchos desafíos cuando se trata de diseñar una aplicación perfectamente para todos los navegadores y todos los tamaños de pantalla. CSS-Grid y Flexbox son herramientas que se han desarrollado para hacer el trabajo un poco más estructurado y más confiable. Aprende sobre estas herramientas jugando a [Flexbox Froggy](https://flexboxfroggy.com/#es){:target="_blank"} y [Grid Garden](https://codepip.com/games/grid-garden/){:target="_blank"}.
-
-Lectura adicional: [Diseña tu aplicación HTML con CSS](https://docs.microsoft.com/es-mx/learn/modules/build-simple-website/4-css-basics?WT.mc_id=academic-13441-cxa){:target="_blank"}
+Dale tu estilo personal a la plaza usando CSS para cambiar colores, opacidad, tamaños o formas, y toma capturas de pantalla de los cambios en tu código y el resultado para mostrar que lo probaste.
+Podes empezar por cambiar a apariencia del cielo y la tierra de la plaza jugando con los colores y opacidad.
 
 # Tarea
 
 ## Personalización de estilos
 {: .no_toc }
 
-Dale tu estilo personal a la plaza usando CSS para cambiar colores, opacidad, tamaños o formas, y toma capturas de pantalla de los cambios en tu código y el resultado para mostrar que lo probaste.
-Podes empezar por cambiar a apariencia del cielo y la tierra de la plaza jugando con los colores y opacidad.
+CSS parece engañosamente sencillo, pero existen muchos desafíos cuando se trata de diseñar una aplicación perfectamente para todos los navegadores y todos los tamaños de pantalla. CSS-Grid y Flexbox son herramientas que se han desarrollado para hacer el trabajo un poco más estructurado y más confiable. Aprende sobre estas herramientas jugando a [Flexbox Froggy](https://flexboxfroggy.com/#es){:target="_blank"} y [Grid Garden](https://codepip.com/games/grid-garden/){:target="_blank"}.
+
+Lectura adicional: [Diseña tu aplicación HTML con CSS](https://docs.microsoft.com/es-mx/learn/modules/build-simple-website/4-css-basics?WT.mc_id=academic-13441-cxa){:target="_blank"}
 
 ### Rúbrica
 
-| Criterios | Ejemplar                                                         | Adecuada                      | Necesita mejorar                    |
+| Criterios | Ejemplar (2)                                                        | Adecuada (1)                     | Necesita mejorar (0)                    |
 | -------- | ----------------------------------------------------------------- | ----------------------------- | ------------------------------------ |
-|          | Presenta una plaza con 4 o mas elementos modificados | Modificó modifico entre uno y tres elementos | No cambió el estilo de la plaza en absoluto |
+|          | Presenta una plaza ordenada utilizando Flex o Grid | Se utiliza Flex o Grid, aunque no funcione correctamente | No hizo el refactor solicitado |
 
 
 
