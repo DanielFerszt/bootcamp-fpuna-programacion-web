@@ -364,3 +364,48 @@ Con Docker Compose, lo único que hay que hacer para desplegar una aplicación e
 Si nos fijamos en la terminal mientras la aplicación esta corriendo, vamos a ver que esta mostrando los logs. Para cerrar esto, y parar la aplicación, podemos hacer `ctrl+c`.
 
 Habiendo detenido la aplicación, podemos ejecutar el comando `docker compose down` para eliminar todos los contenedores creados.
+
+# Volúmenes
+
+Durante este tutorial, estuvimos trabajando con una base de datos no relacional y creamos registros nuevos para probar la aplicación. Pero te habrás dado cuenta de que cada vez que eliminamos los contenedores y los volvimos a crear, la base de datos siempre estaba vacía.
+
+Para lograr persistir estos datos, vamos a usar una herramienta más.
+
+Los volúmenes en Docker son una forma de persistir los datos que se generan o se utilizan dentro de los contenedores, de forma que los datos no se pierdan al eliminarlos. Existen tres tipos de volúmenes:
+
+- Volúmenes de host: permiten que un directorio del host sea montado dentro del contenedor.
+- Volúmenes nombrados: son volúmenes independientes del host, que pueden ser utilizados por múltiples contenedores.
+- Volúmenes de tipo tmpfs: se almacenan en la memoria RAM y se borran cuando se eliminan los contenedores que los utilizan.
+
+También existen los volúmenes anónimos, que son temporales y se crean cuando se inicia un contenedor, pero se eliminan cuando este se detiene. Por otro lado, los volúmenes de tipo tmpfs se almacenan en la memoria RAM y se borran cuando se eliminan los contenedores que los utilizan.
+
+Para empezar a usar volúmenes, volvamos al archivo docker-compose.yml.
+
+A continuación de los servicios, vamos a especificar los volúmenes:
+
+```yaml
+volumes:
+  mongo-data:
+```
+
+Con esta sección, estamos definiendo todos los volúmenes que se van a usar en nuestra aplicación.
+
+Ahora tenemos que indicar qué volumen va a utilizar nuestra base de datos:
+
+```yaml
+mongo_ppy:
+    image: mongo
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=ppy
+      - MONGO_INITDB_ROOT_PASSWORD=password
+    volumes:
+      - mongo-data: /data/db
+```
+
+La última sección indica cuál es el volumen que se va a utilizar, y hay que indicar también la ruta en la que se guardan los datos. En el caso de MongoDB, es `/data/db`.
+
+Guardamos los cambios, nos aseguramos de que los contenedores estén abajo (con `docker compose down`), y podemos volver a crear los contenedores con `docker compose up`.
+
+Una vez hecho esto, podemos volver a probar la aplicación, y nos vamos a dar cuenta de que podemos eliminar los contenedores y volver a crearlos cuantas veces queramos, y los datos van a persistir.
