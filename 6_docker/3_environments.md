@@ -3,19 +3,9 @@ title: Hot Reload y entornos diferentes
 has_children: false
 parent: Introducción a Docker
 nav_order: 3
-has_toc: true
+has_toc: false
 ---
 # Configurando diferentes ambientes
-{: .no_toc }
-
-<details open markdown="block">
-  <summary>
-    Table of contents
-  </summary>
-  {: .text-delta }
-1. TOC
-{:toc}
-</details>
 
 
 Existen muchas herramientas que nos pueden resultar útiles durante el desarrollo, pero que no queremos instalarlas cuando se hace el despliegue en otros entornos como testing o producción.
