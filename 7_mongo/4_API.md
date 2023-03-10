@@ -33,6 +33,7 @@ En este proyecto, vamos a trabajar en el backend.
 
 - [Mongoose Crash Course - Beginner Through Advanced](https://www.youtube.com/watch?v=DZBGEVgL2eE&t=30s&ab_channel=WebDevSimplified)
 - [Descarga de Cheat-Sheet](https://webdevsimplified.com/mongodb-cheat-sheet.html)
+- [Mongo Playground](https://mongoplayground.net/)
 
 # Setup
 
@@ -169,7 +170,7 @@ app.post('/new_user', (req,res) => {
     res.send(req.body)
 })
 
-app.post('/new_recepie', (req,res) => {
+app.post('/new_recipe', (req,res) => {
     res.send(req.body)
 })
 
@@ -177,7 +178,7 @@ app.post('/rate', (req,res) => {
     res.send(req.body)
 })
 
-app.get('/recepies', (req,res) => {
+app.get('/recipes', (req,res) => {
     res.send("Enviamos las recetas")
 })
 
@@ -234,7 +235,7 @@ Ahora que estamos conectados a la base de datos podemos empezar con el modelado.
 
 Primeramente vamos a crear una carpeta en el directorio del proyecto, llamada `models`. Ahi vamos a guardar todos nuestros modelos de datos.
 
-De acuerdo al modelado que hicimos en la sección anterior, tenemos dos colecciones: users y recepies.
+De acuerdo al modelado que hicimos en la sección anterior, tenemos dos colecciones: users y recipes.
 
 Vamos a empezar por modelar la entidad `user`.
 
@@ -306,7 +307,7 @@ Recordemos que en el esquema que desarrollamos, en realidad teníamos 4 entidade
 
 Pero tanto `Rating` como `Ingredient` estaban “embebidos” en `Recepie`. Vamos a tener que replicar esto en el esquema de mongoose.
 
-Para hacer esto, seguimos los mismos pasos que con la entidad `user`, pero en el archivo `recepie.js`.
+Para hacer esto, seguimos los mismos pasos que con la entidad `user`, pero en el archivo `recipe.js`.
 
 En lugar del esquema para los usuarios, primero vamos a modelar la entidad `ingredient`:
 
@@ -348,10 +349,10 @@ const ratingSchema = mongoose.Schema({
 }, { _id: false})
 ```
 
-y finalmente podemos modelar la entidad `recepie`:
+y finalmente podemos modelar la entidad `recipe`:
 
 ```jsx
-const recepieSchema = mongoose.Schema({
+const recipeSchema = mongoose.Schema({
     schema: {
         type: Number,
         required: true
@@ -388,30 +389,97 @@ Hay muchas cosas interesantes en este esquema!
 
 En Mongoose, los subdocumentos son documentos anidados dentro de otro documento que tienen su propio esquema. Son útiles para modelar relaciones de uno a muchos, donde un documento principal tiene varios subdocumentos asociados.
 
-En el esquema de la entidad `recepie`, `ratingSchema` y `ingredientSchema` son ejemplos de subdocumentos porque están anidados dentro del esquema principal de `recepieSchema`.
+En el esquema de la entidad `recipe`, `ratingSchema` y `ingredientSchema` son ejemplos de subdocumentos porque están anidados dentro del esquema principal de `recipeSchema`.
 
 Al definir un subdocumento, es importante especificar que `_id` sea `false` en el segundo argumento del constructor `mongoose.Schema()`, para que no se cree un identificador único para cada subdocumento. En lugar de eso, el `_id` del subdocumento se deriva del documento principal.
 
-Para acceder a un subdocumento en el código, se utiliza la notación de punto, por ejemplo `recepie.ingredients[0].name` accedería al nombre del primer ingrediente en la receta.
+Para acceder a un subdocumento en el código, se utiliza la notación de punto, por ejemplo `recipe.ingredients[0].name` accedería al nombre del primer ingrediente en la receta.
 
 ### Validaciones
 
-Mongoose ofrece la posibilidad de añadir validaciones a los esquemas de las entidades. En el ejemplo del documento, se pueden ver algunas validaciones aplicadas a los campos de las entidades `user`, `ingredient`, `rating` y `recepie`. 
+Mongoose ofrece la posibilidad de añadir validaciones a los esquemas de las entidades. En el ejemplo del documento, se pueden ver algunas validaciones aplicadas a los campos de las entidades `user`, `ingredient`, `rating` y `recipe`. 
 
 Por ejemplo, en el esquema de `user`, se establece que el campo `name` es obligatorio (`required: true`) y debe estar en minúsculas (`lowercase: true`). 
 
 En el esquema de `ingredient`, se establece que todos los campos son obligatorios (`required: true`), y que el campo `unit` también debe estar en minúsculas. En el esquema de `rating`, se establece una validación personalizada para el campo `rating`, que debe estar entre 0 y 5 (`validator: v => v >= 0 && v<=5`). 
 
-En el esquema de `recepie`, se establece una validación personalizada para el campo `ingredients`, que debe tener al menos un ingrediente (`validator: v => v.length > 0`).
+En el esquema de `recipe`, se establece una validación personalizada para el campo `ingredients`, que debe tener al menos un ingrediente (`validator: v => v.length > 0`).
 
 ### Actividad - Endpoint para registrar receta
 
 Habiendo creado el endpoint para registrar un usuario, esto debería ser fácil!
 
-Termina el endpoint para registrar una receta con el modelo que creamos anteriormente, en la ruta `/new_recepie`.
+Termina el endpoint para registrar una receta con el modelo que creamos anteriormente, en la ruta `/new_recipe`.
 
 Proba la api con Insomnia para saber que esta bien.
 
+### Actividad - Endpoint para obtener todas las recetas de un usuario
+
+Ahora que podemos registrar recetas, hagamos el endpoint para consultar todas las recetas de un usuario.
+
+La ruta debería ser `/recipes`.
+
+Como siempre, probamos la api con Insomnia.
+
+## Endpoint para calificar recetas
+
+Ahora hagamos algo mas complejo. Queremos hacer un update sobre un documento de la colección para registrar una calificación nueva.
+
+Lo que tenemos que tener en cuenta, es que queremos agregar un objeto nuevo a un array.
+
+Nuestro payload tendría esta forma:
+```json
+{
+	"recipeId": "640b8aa76ae2562fb9023dcf",
+	"userId": "640a46b8b9447ba3c4832c3d",
+	"rating": 5
+}
+```
+
+El objeto que tenemos que agregar al array `ratings` de nuestro documento, tiene esta forma:
+```json
+{
+	"userId": "640a46b8b9447ba3c4832c3d",
+	"rating": 5
+}
+```
+
+Si solo queremos agregar la calificación, podemos hacer `db.updateOne({ _id: <id> }, {$push: {ratings: <objeto>}})`.
+
+Sin embargo, ademas de hacer el push, queremos actualizar el campo `avgRating` con el nuevo promedio. Hay muchas formas de hacer esto, una de ellas es usando un **update con agregación**.
+
+Esto tiene esta forma:
+```jsx
+db.updateOne(
+    { _id: <id> },
+    [
+        { <primera etapa> },
+        { <segunda etapa> }
+    ]
+)
+```
+Nos permite encadenar muchas operaciones en etapas distintas.
+En la primera etapa podemos hacer el push, y en la segunda calculamos el promedio. El problema, es que no se puede usar el comando `$push` en un pipeline de agregacion como este.
+
+En la sección anterior ya trabajamos en una solución para esto, nuestra ruta quedaría asi:
+```js
+app.put('/rate', (req,res) => {
+    const { recipeId, userId , rating } = req.body
+    recepieSchema
+    .updateOne(
+        { _id: recipeId },
+        [
+            { $set: { ratings: {$concatArrays: [{$ifNull: ['$ratings', []]}, [{ userId: userId, rating: rating}]]}} },
+            {$set: {avgRating: {$trunc: [{$avg:['$ratings.rating']},0]}}}
+        ]
+    )
+    .then((data) => res.json(data))
+    .catch((error) => {
+        console.log(error)
+        res.send("error")
+    })
+})
+```
 # Tarea - API de Recetas.
 
 Termina la API por tu cuenta, con estos requerimientos:
@@ -432,7 +500,7 @@ Termina la API por tu cuenta, con estos requerimientos:
         ```
         
     - **Crear Receta:**
-        - Ruta: `localhost:3000/new_recepie`
+        - Ruta: `localhost:3000/new_recipe`
         - Payload:
         
         ```json
@@ -457,7 +525,7 @@ Termina la API por tu cuenta, con estos requerimientos:
         ```
         
     - **Recetas por ingredientes:**
-        - Ruta: `localhost:3000/recepiesbyingredient`
+        - Ruta: `localhost:3000/recipesbyingredient`
         - Payload:
         
         ```json
@@ -485,7 +553,7 @@ Termina la API por tu cuenta, con estos requerimientos:
             
             
     - **Recetas por usuario:**
-        - Ruta: `localhost:3000/recepies`
+        - Ruta: `localhost:3000/recipes`
         - Payload:
         
         ```json
